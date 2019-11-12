@@ -9,9 +9,10 @@
 import UIKit
 
 class SavedListTableViewController: UITableViewController {
-
+    let event3 = Festivals(name: "Austin Music Video Festival", location: "700 Lavaca St, Austin, TX", Date: "Dec 10th", price: "$35 – $185", venue: "Alamo Drafthouse Cinema Ritz", desc: "Since launching in 2015, AMVF has become the biggest music video festival on the planet, fearlessly showcasing cutting-edge independent artists alongside the likes of Flaming Lips, Kesha, Spike Jonze, and Beyoncé.", Website: "https://www.amvfest.com/", Image: "https://assets.simpleviewinc.com/simpleview/image/fetch/c_fill,h_357,q_75,w_537/https://assets.simpleviewinc.com/simpleview/image/upload/crm/austin/AMV10_c21488b5-065c-7969-ca77c539342d817d.jpg")
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -37,8 +38,9 @@ class SavedListTableViewController: UITableViewController {
             fatalError("The dequeued cell is not an instance of SavedCellTableViewCell.")
         }
         
-        cell.SavedName.text = "Austin Film Festival"
-        cell.SavedDate.text = "October 24 - October 31, 2019"
+        cell.SavedName.text = event3.name
+        cell.SavedDate.text = event3.Date
+        cell.SavedImage.image = event3.getImage()
 
         return cell
     }

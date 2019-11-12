@@ -26,6 +26,9 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Festival Name)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WvD-se-E9n">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="374" id="UE0-k4-PVd"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -142,6 +145,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="bMN-UI-NGm"/>
+                    <connections>
+                        <outlet property="dateLabel" destination="xVn-7p-jnJ" id="heq-HW-Qr6"/>
+                        <outlet property="descLabel" destination="99D-vL-B79" id="Iuc-mT-lAM"/>
+                        <outlet property="image" destination="z6Q-Ca-12t" id="0qs-am-5J3"/>
+                        <outlet property="nameLabel" destination="WvD-se-E9n" id="Xap-Du-Agg"/>
+                        <outlet property="priceLabel" destination="HIK-CB-ccc" id="XOg-gh-mep"/>
+                        <outlet property="siteLabel" destination="hez-Ke-tjM" id="bbA-Sg-dG7"/>
+                        <outlet property="venueLabel" destination="Oq1-ez-U5n" id="y2K-iG-dvB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -261,6 +273,10 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fqN-BN-suV">
                                                     <rect key="frame" x="0.0" y="4" width="120" height="120"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="120" id="W39-PX-dkc"/>
+                                                        <constraint firstAttribute="height" constant="120" id="tUq-bg-Ziq"/>
+                                                    </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="onY-j5-1mn">
                                                     <rect key="frame" x="145" y="0.0" width="229" height="128"/>
@@ -286,8 +302,13 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="onY-j5-1mn" firstAttribute="top" secondItem="nhm-qH-Xz2" secondAttribute="topMargin" id="RgP-qx-EXb"/>
+                                                <constraint firstItem="onY-j5-1mn" firstAttribute="leading" secondItem="fqN-BN-suV" secondAttribute="trailing" constant="25" id="RqK-U7-n3e"/>
                                                 <constraint firstItem="onY-j5-1mn" firstAttribute="trailing" secondItem="nhm-qH-Xz2" secondAttribute="trailingMargin" id="XEa-5I-zO7"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="onY-j5-1mn" secondAttribute="bottom" id="boa-R3-3En"/>
+                                                <constraint firstItem="fqN-BN-suV" firstAttribute="leading" secondItem="nhm-qH-Xz2" secondAttribute="leadingMargin" id="hn8-MC-SdX"/>
+                                                <constraint firstItem="fqN-BN-suV" firstAttribute="top" secondItem="nhm-qH-Xz2" secondAttribute="topMargin" constant="4" id="kSu-VP-s7a"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="fqN-BN-suV" secondAttribute="bottom" constant="4" id="oyt-0F-g20"/>
+                                                <constraint firstAttribute="trailing" secondItem="onY-j5-1mn" secondAttribute="trailing" id="qgy-Fe-w70"/>
                                             </constraints>
                                         </stackView>
                                     </subviews>
@@ -337,6 +358,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="j8Y-lR-YFj"/>
+        <segue reference="OJM-Ck-yNt"/>
     </inferredMetricsTieBreakers>
 </document>
