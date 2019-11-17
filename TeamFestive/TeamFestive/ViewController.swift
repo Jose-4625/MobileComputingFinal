@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController{
 
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var venueLabel: UILabel!
     @IBOutlet weak var descLabel: UITextView!
     @IBOutlet weak var siteLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -29,7 +30,10 @@ class ViewController: UIViewController {
         self.siteLabel.text = event3.WebSite
         self.venueLabel.text = event3.venue
         
+        
     }
+    
+    
 
 
 }

@@ -7,9 +7,15 @@
 //
 
 import UIKit
+import CoreData
 
 class SavedListTableViewController: UITableViewController {
     let event3 = Festivals(name: "Austin Music Video Festival", location: "700 Lavaca St, Austin, TX", Date: "Dec 10th", price: "$35 – $185", venue: "Alamo Drafthouse Cinema Ritz", desc: "Since launching in 2015, AMVF has become the biggest music video festival on the planet, fearlessly showcasing cutting-edge independent artists alongside the likes of Flaming Lips, Kesha, Spike Jonze, and Beyoncé.", Website: "https://www.amvfest.com/", Image: "https://assets.simpleviewinc.com/simpleview/image/fetch/c_fill,h_357,q_75,w_537/https://assets.simpleviewinc.com/simpleview/image/upload/crm/austin/AMV10_c21488b5-065c-7969-ca77c539342d817d.jpg")
+    var SavedEvents:[NSManagedObject] = []
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.loadSavedData()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,12 +43,27 @@ class SavedListTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "SavedCell", for: indexPath) as? SavedCellTableViewCell else {
             fatalError("The dequeued cell is not an instance of SavedCellTableViewCell.")
         }
+        let Event = SavedEvents[indexPath.row]
+        cell.SavedName.text = Event.value(forKeyPath: "name") as? String
+        cell.SavedDate.text = String(Event.value(forKeyPath: "date") as! Int)
+        cell.SavedImage.image = UIImage(data: Event.value(forKeyPath: "image") as! Data)
         
-        cell.SavedName.text = event3.name
-        cell.SavedDate.text = event3.Date
-        cell.SavedImage.image = event3.getImage()
-
         return cell
+        
+    }
+    func loadSavedData(){
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        //2
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Event")
+        //3
+        do {
+            SavedEvents = try managedContext.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
     }
 
     /*

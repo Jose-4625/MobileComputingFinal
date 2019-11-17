@@ -8,7 +8,8 @@
 
 import UIKit
 
-class Festivals{
+class Festivals:DetailDataProtocol {
+    let descData = DetailData()
     var location:String = ""
     var name:String = ""
     var Date:String = ""
@@ -23,9 +24,21 @@ class Festivals{
         self.Date = Date
         self.price = price
         self.venue = venue
-        self.desc = desc
+        self.desc = desc //event id is passed to make another API call for more info
         self.WebSite = Website
         self.imageURL = NSURL(string: Image)!
+        self.descData.delegate = self
+        //self.getDesc(desc: self.desc)
+    }
+    func getDesc(desc:String){
+        descData.getData(dataQuery: desc)
+    }
+    func responseDataHandler(data: NSDictionary) {
+        print("DESCDATA//",data)
+    }
+    
+    func responseError(message: String) {
+        print("Error")
     }
     func getImage() -> UIImage{
         let url:URL = self.imageURL as URL
