@@ -241,6 +241,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="VKn-vA-rmB">
+                        <barButtonItem key="leftBarButtonItem" title="Search" id="vQc-Kh-5zN">
+                            <connections>
+                                <segue destination="BPf-ld-drR" kind="presentation" id="f9h-zg-ada"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Saved" id="BbS-DF-TZJ">
                             <connections>
                                 <segue destination="kQh-ua-BhF" kind="show" id="qdZ-I4-bXG"/>
@@ -365,33 +370,65 @@
                         <viewControllerLayoutGuide type="bottom" id="cr1-06-DdN"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="4bG-9D-Rgw" customClass="BackgroundView" customModule="TeamFestive" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="56" translatesAutoresizingMaskIntoConstraints="NO" id="gHz-HJ-tkc">
-                                <rect key="frame" x="20" y="149" width="374" height="124"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="gHz-HJ-tkc">
+                                <rect key="frame" x="20" y="51" width="374" height="184"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="EXAMPLE" borderStyle="roundedRect" placeholder="Enter city" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qlK-S7-PkG">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mbv-Qm-Oqp">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="EXAMPLE" borderStyle="line" placeholder="Enter city" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qlK-S7-PkG">
+                                        <rect key="frame" x="0.0" y="35.5" width="374" height="26.5"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter state" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0no-Tp-rPj">
-                                        <rect key="frame" x="0.0" y="90" width="374" height="34"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="State:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VyM-7u-xx6">
+                                        <rect key="frame" x="0.0" y="77" width="374" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="EXAMPLE" borderStyle="line" placeholder="Enter state" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0no-Tp-rPj">
+                                        <rect key="frame" x="0.0" y="112.5" width="374" height="26.5"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qjz-bX-H7g">
+                                        <rect key="frame" x="0.0" y="154" width="374" height="30"/>
+                                        <state key="normal" title="Search">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="search" destination="BPf-ld-drR" eventType="touchUpInside" id="c5C-vU-YZ7"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="gHz-HJ-tkc" secondAttribute="trailing" id="4FV-gW-YMO"/>
-                            <constraint firstItem="gHz-HJ-tkc" firstAttribute="trailing" secondItem="4bG-9D-Rgw" secondAttribute="trailingMargin" id="BP6-qZ-aRo"/>
-                            <constraint firstItem="gHz-HJ-tkc" firstAttribute="leading" secondItem="4bG-9D-Rgw" secondAttribute="leadingMargin" id="YEq-fV-Qcu"/>
-                            <constraint firstItem="gHz-HJ-tkc" firstAttribute="top" secondItem="jK4-gD-0Ac" secondAttribute="bottom" constant="105" id="h6w-eI-NB0"/>
-                            <constraint firstItem="cr1-06-DdN" firstAttribute="top" secondItem="gHz-HJ-tkc" secondAttribute="bottom" constant="589" id="lnI-xE-ytG"/>
+                            <constraint firstItem="gHz-HJ-tkc" firstAttribute="top" secondItem="jK4-gD-0Ac" secondAttribute="bottom" constant="51" id="37T-wN-Mly"/>
+                            <constraint firstItem="cr1-06-DdN" firstAttribute="top" secondItem="gHz-HJ-tkc" secondAttribute="bottom" constant="573" id="6iH-uW-aAK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gHz-HJ-tkc" secondAttribute="trailing" id="7nw-HV-wCq"/>
+                            <constraint firstItem="gHz-HJ-tkc" firstAttribute="leading" secondItem="4bG-9D-Rgw" secondAttribute="leadingMargin" id="mto-Qd-SBF"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="gradientColor1">
+                                <color key="value" cocoaTouchSystemColor="lightTextColor"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="gradientColor2">
+                                <color key="value" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
                         <outlet property="cityField" destination="qlK-S7-PkG" id="Js9-cJ-6Kb"/>
@@ -400,7 +437,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HdT-Uh-d8X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="547.82608695652175" y="870.53571428571422"/>
+            <point key="canvasLocation" x="669.56521739130437" y="1042.6339285714284"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

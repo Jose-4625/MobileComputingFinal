@@ -14,6 +14,8 @@ class SearchViewController: UIViewController, UITextFieldDelegate, EventDataProt
     @IBOutlet weak var cityField: UITextField!
     @IBOutlet weak var stateField: UITextField!
 
+    private let key = "apikey=cZkS7fkgZY5xuMVE6pAP6cc7PdJFZjYP"
+    private let urlBase = "https://app.ticketmaster.com/discovery/v2/events.json?"
     
     
     override func viewDidLoad() {
@@ -26,7 +28,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, EventDataProt
     private var dataSession = EventData()
     
     // MARK: Formatting
-    @IBAction func checkConditions() {
+    @IBAction func search() {
         
         self.cityField.resignFirstResponder()
         self.stateField.resignFirstResponder()
@@ -40,11 +42,12 @@ class SearchViewController: UIViewController, UITextFieldDelegate, EventDataProt
             processedURL = newState
         }
         else {
-            processedURL = "city=\(newCity)&countryCode=\(newState)"
+            processedURL = "city=\(newCity)&stateCode=\(newState)&"
         }
     
 
-        self.dataSession.getData(dataQuery: processedURL)
+        self.dataSession.getData(dataQuery: urlBase + processedURL + key)
+        print(urlBase + processedURL + key)
     }
     
     // MARK: UITextFieldDelegate
