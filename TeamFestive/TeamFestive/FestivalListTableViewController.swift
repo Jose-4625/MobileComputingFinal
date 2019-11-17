@@ -23,6 +23,8 @@ class FestivalListTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        tableView.backgroundColor = .oceanBlue
+
     }
 
     // MARK: - Table view data source
@@ -41,11 +43,22 @@ class FestivalListTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FestivalCell", for: indexPath) as? FestivalCellTableViewCell else {
             fatalError("The dequeued cell is not an instance of FestivalCellTableViewCell.")
         }
+        
+        if !(cell.backgroundView is ListCellBackground) {
+          cell.backgroundView = ListCellBackground()
+        }
+            
+        if !(cell.selectedBackgroundView is ListCellBackground) {
+          cell.selectedBackgroundView = ListCellBackground()
+        }
+
         let curFest = mocklist[indexPath.row]
         
         cell.ListName.text = curFest.name
         cell.ListDate.text = curFest.Date
         cell.ListImage.image = curFest.getImage()
+        cell.textLabel!.textColor = .matteGrey
+
         return cell
     }
 
