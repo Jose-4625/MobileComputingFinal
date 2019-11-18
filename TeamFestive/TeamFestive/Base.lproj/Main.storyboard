@@ -390,40 +390,27 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Enter city" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qlK-S7-PkG">
-                                        <rect key="frame" x="0.0" y="30.5" width="374" height="25"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Enter city" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qlK-S7-PkG">
+                                        <rect key="frame" x="0.0" y="30.5" width="374" height="90.5"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="State:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VyM-7u-xx6">
-                                        <rect key="frame" x="0.0" y="65.5" width="374" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Enter state" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0no-Tp-rPj">
-                                        <rect key="frame" x="0.0" y="96" width="374" height="25"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qjz-bX-H7g">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qjz-bX-H7g">
                                         <rect key="frame" x="0.0" y="131" width="374" height="30"/>
                                         <state key="normal" title="Search">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="search" destination="BPf-ld-drR" eventType="touchUpInside" id="c5C-vU-YZ7"/>
+                                            <action selector="search:" destination="BPf-ld-drR" eventType="touchUpInside" id="aRd-7Z-mnf"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1oJ-ay-6q1">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1oJ-ay-6q1">
                                         <rect key="frame" x="0.0" y="171" width="374" height="30"/>
                                         <state key="normal" title="Cancel"/>
                                         <connections>
-                                            <segue destination="mGP-1o-vXc" kind="unwind" unwindAction="unwindToListViewWithSegue:" id="0Hv-Mk-3d4"/>
+                                            <segue destination="mGP-1o-vXc" kind="unwind" identifier="unwind" unwindAction="unwindToListViewWithSegue:" id="VZn-tO-FPe"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -448,8 +435,7 @@
                     <connections>
                         <outlet property="cancelButton" destination="1oJ-ay-6q1" id="7wM-SJ-g5g"/>
                         <outlet property="cityField" destination="qlK-S7-PkG" id="Js9-cJ-6Kb"/>
-                        <outlet property="searchButon" destination="qjz-bX-H7g" id="BaB-Nd-Mk4"/>
-                        <outlet property="stateField" destination="0no-Tp-rPj" id="UDA-xL-v1c"/>
+                        <outlet property="searchButton" destination="qjz-bX-H7g" id="Unz-pV-EIC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HdT-Uh-d8X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

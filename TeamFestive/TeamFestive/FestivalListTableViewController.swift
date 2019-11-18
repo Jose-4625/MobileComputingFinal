@@ -18,6 +18,7 @@ class FestivalListTableViewController: UITableViewController, EventDataProtocol,
     let locationManager = CLLocationManager()
     
     func responseDataHandler(data: NSDictionary) {
+        self.eventlist = []
         let dat = data["_embedded"]! as! NSDictionary
         let events = dat["events"] as! NSArray
         DispatchQueue.main.async {
@@ -30,8 +31,8 @@ class FestivalListTableViewController: UITableViewController, EventDataProtocol,
             let priceMin:String
             let priceMax:String
             if (d!["priceRanges"] != nil){
-                priceMin = String(((d!["priceRanges"]! as! NSArray)[0] as! NSDictionary)["min"]! as! Float)
-                priceMax = String(((d!["priceRanges"]! as! NSArray)[0] as! NSDictionary)["max"]! as! Float)
+                priceMin = String((((d!["priceRanges"]! as! NSArray)[0] as! NSDictionary)["min"]! as! NSNumber).floatValue)
+                priceMax = String((((d!["priceRanges"]! as! NSArray)[0] as! NSDictionary)["max"]! as! NSNumber).floatValue)
             }else{
                 priceMin = "Unavailable"
                 priceMax = "Unavailable"

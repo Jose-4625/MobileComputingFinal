@@ -28,6 +28,7 @@ class EventData{
         let tempURL:String = urlBase + "city=" + query
         let URL_Key:String = tempURL + key
         let url:NSURL = NSURL(string: URL_Key)!
+        print(url)
         return url
     }
     

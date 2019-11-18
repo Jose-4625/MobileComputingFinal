@@ -13,8 +13,8 @@ import os.log
 class SearchViewController: UIViewController, UITextFieldDelegate, EventDataProtocol {
 
     @IBOutlet weak var cityField: UITextField!
-    @IBOutlet weak var stateField: UITextField!
-    @IBOutlet weak var searchButon: UIButton!
+    
+    @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     
     private let key = "apikey=cZkS7fkgZY5xuMVE6pAP6cc7PdJFZjYP"
@@ -29,31 +29,33 @@ class SearchViewController: UIViewController, UITextFieldDelegate, EventDataProt
     
     // MARK: Variables
     private var dataSession = EventData()
-    
+    var city:String = ""
     // MARK: Formatting
     @IBAction func search(_ sender: UIButton) {
         
         self.cityField.resignFirstResponder()
-        self.stateField.resignFirstResponder()
+        //self.stateField.resignFirstResponder()
         
         // Needs to be ?q={city},{state} and ?q={zipcode}
         var processedURL: String
-        let (newState, zipFlag) = convertText(text: stateField.text!)
+        //let (newState, zipFlag) = convertText(text: stateField.text!)
         let (newCity, _) = convertText(text: cityField.text!)
         let justCity = convertText(text: cityField.text!)
         
 
-        if zipFlag {
+        /*if zipFlag {
             processedURL = newState
         }
         else {
             processedURL = "city=\(newCity)&stateCode=\(newState)&"
-        }
+        }*/
     
-        let completeURL = urlBase + processedURL + key
-
-        self.dataSession.getData(dataQuery: completeURL)
-        print(completeURL)
+        //let completeURL = urlBase + processedURL + key
+        self.city = newCity
+        print(self.city)
+        self.performSegue(withIdentifier: "unwind", sender: searchButton)
+        //self.dataSession.getData(dataQuery: justCity)
+        //print(completeURL)
     }
     
     // MARK: UITextFieldDelegate
@@ -90,15 +92,17 @@ class SearchViewController: UIViewController, UITextFieldDelegate, EventDataProt
         
         super.prepare(for: segue, sender: sender)
         
-//        guard let button = sender as? UIButton, button === searchButon else {
-//             os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
-//             return
-//         }
+        guard let button = sender as? UIButton, button === searchButton else {
+             os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
+             return
+            
+        }
         
         if segue.destination is FestivalListTableViewController
         {
             let vc = segue.destination as? FestivalListTableViewController
-            vc?.dataSession.getData(dataQuery: "Dallas")
+            vc!.dataSession.getData(dataQuery: String(self.city))
+            
          
         }
         
