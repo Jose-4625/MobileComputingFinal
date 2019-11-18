@@ -21,6 +21,12 @@ class ListCellBackground: UIView {
         startingWith: UIColor.oceanBlue.cgColor,
         finishingWith: UIColor.fadedPink.cgColor
       )
+        
+      let strokeRect = backgroundRect.insetBy(dx: 4.5, dy: 4.5)
+      context.setStrokeColor(UIColor.matteGrey.cgColor)
+      context.setLineWidth(1)
+      context.stroke(strokeRect)
+
 
       // 2
       //context.setFillColor(UIColor.red.cgColor)
