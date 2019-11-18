@@ -85,6 +85,15 @@ class FestivalListTableViewController: UITableViewController, EventDataProtocol 
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FestivalCell", for: indexPath) as? FestivalCellTableViewCell else {
             fatalError("The dequeued cell is not an instance of FestivalCellTableViewCell.")
         }
+        
+        if !(cell.backgroundView is ListCellBackground) {
+          cell.backgroundView = ListCellBackground()
+        }
+            
+        if !(cell.selectedBackgroundView is ListCellBackground) {
+          cell.selectedBackgroundView = ListCellBackground()
+        }
+
 
         let curFest = eventlist[indexPath.row]
 
