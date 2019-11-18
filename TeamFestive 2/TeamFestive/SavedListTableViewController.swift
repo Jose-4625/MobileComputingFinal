@@ -45,8 +45,9 @@ class SavedListTableViewController: UITableViewController {
         }
         let Event = SavedEvents[indexPath.row]
         cell.SavedName.text = Event.value(forKeyPath: "name") as? String
-        cell.SavedDate.text = String(Event.value(forKeyPath: "date") as! String)
-        cell.SavedImage.image = UIImage(data: Event.value(forKeyPath: "image") as! Data)
+        cell.SavedDate.text = Event.value(forKeyPath: "date") as? String
+        //MARK: COMMENT OUT THE BELOW LINE AND MAKE THE CHANGES TO THE ABOVE LINE
+        //cell.SavedImage.image = UIImage(data: Event.value(forKeyPath: "image") as! Data)
         
         return cell
         
@@ -65,23 +66,13 @@ class SavedListTableViewController: UITableViewController {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-        if segue.destination is ViewController{
-            let vc = segue.destination as? ViewController
-            let cellidx = self.tableView.indexPathForSelectedRow!
-            let selecedData = self.SavedEvents[cellidx.row]
-            let cell = self.tableView.cellForRow(at: cellidx) as! SavedCellTableViewCell
-            //name: String, _class:String, level:Int, image:UIImage, currentHP:Int, totalHP:Int, APM:Float
-            vc!.date = selecedData.value(forKeyPath: "date") as? String
-            vc!.desc = selecedData.value(forKeyPath: "desc") as? String
-            vc!.img = UIImage(data: selecedData.value(forKeyPath: "image") as! Data)
-            vc!.name = selecedData.value(forKeyPath: "name") as? String
-            vc!.price = selecedData.value(forKeyPath: "price") as? String
-            vc!.site = selecedData.value(forKeyPath: "website") as? String
-            vc!.venue = selecedData.value(forKeyPath: "venue") as? String
+    
+    //MARK: ADD THE UNWIND (MAKE THE CHANGES ON THE MAIN STORYBOARD!!!
+    @IBAction func unwindToSavedList(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.source as? FestivalListTableViewController {
+            SavedEvents = sourceViewController.savedList
         }
-        
+        self.tableView.reloadData()
     }
 
     /*

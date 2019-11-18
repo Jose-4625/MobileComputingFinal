@@ -10,11 +10,13 @@ import UIKit
 import CoreLocation
 import CoreData
 import MapKit
+import os.log
 
 class FestivalListTableViewController: UITableViewController, EventDataProtocol, CLLocationManagerDelegate {
+    //MARK: ADD THIS VARIABLE
+    @IBOutlet weak var savedListButton: UIBarButtonItem!
     
     var startCity : String = ""
-    
     let locationManager = CLLocationManager()
     
     func responseDataHandler(data: NSDictionary) {
@@ -58,6 +60,8 @@ class FestivalListTableViewController: UITableViewController, EventDataProtocol,
     }
     
     var eventlist:[Festivals] = [];
+    //MARK: ADD THE VARIABLE SAVEDLIST
+    var savedList: [NSManagedObject] = []
     var dataSession = EventData()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,7 +75,6 @@ class FestivalListTableViewController: UITableViewController, EventDataProtocol,
         }
         
         self.dataSession.delegate = self
-        //self.dataSession.getData(dataQuery: "Austin")
         
         
         // Uncomment the following line to preserve selection between presentations
@@ -190,29 +193,51 @@ class FestivalListTableViewController: UITableViewController, EventDataProtocol,
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
     }
+    
+    //MARK: ADD THE SAVE METHOD AND THE UNWINDING; MAKE THE CHANGES ON THE STORYBOARD WITH THE SEGUES
+    func save(name: String, desc: String, image: UIImage, date: String, price: String, venue: String, website: String) {
+      guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+        return
+      }
+        
+      let managedContext = appDelegate.persistentContainer.viewContext
 
-    //MARK: Navigation
-    @IBAction func unwindToListView(segue: UIStoryboardSegue){
-        
-    }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-        if segue.destination is ViewController{
-            let vc = segue.destination as? ViewController
-            let cellidx = self.tableView.indexPathForSelectedRow!
-            let selecedData = self.eventlist[cellidx.row]
-            let cell = self.tableView.cellForRow(at: cellidx) as! FestivalCellTableViewCell
-            //name: String, _class:String, level:Int, image:UIImage, currentHP:Int, totalHP:Int, APM:Float
-            vc!.date = selecedData.Date
-            vc!.desc = selecedData.desc
-            vc!.img = selecedData.getImage()
-            vc!.name = selecedData.name
-            vc!.price = selecedData.price
-            vc!.site = selecedData.WebSite
-            vc!.venue = selecedData.venue
-        }
-        
+      let entity = NSEntityDescription.entity(forEntityName: "Event", in: managedContext)!
+      
+      let festival = NSManagedObject(entity: entity, insertInto: managedContext)
+        festival.setValue(name, forKeyPath: "name")
+        festival.setValue(desc, forKeyPath: "desc")
+        festival.setValue(image.pngData(), forKeyPath: "image")
+        festival.setValue(date, forKey: "date")
+        festival.setValue(price, forKey: "price")
+        festival.setValue(venue, forKey: "venue")
+        festival.setValue(website, forKey: "website")
+      do {
+        try managedContext.save()
+        savedList.append(festival)
+      } catch let error as NSError {
+        print("Could not save. \(error), \(error.userInfo)")
+      }
     }
     
+    //MARK: Unwinds
+    @IBAction func unwindToFestivalList(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.source as? ViewController, let savedFestival = sourceViewController.savedFestival {
+            self.save(name: savedFestival.name, desc: savedFestival.desc, image: savedFestival.image, date: savedFestival.Date, price: savedFestival.price, venue: savedFestival.venue, website: savedFestival.WebSite)
+        } else if let sourceViewController = sender.source as? SearchViewController {
+            //CODE FOR UNWINDING FROM SEARCH
+        }
+        self.tableView.reloadData()
+    }
+    
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let button = sender as? UIBarButtonItem, button === savedListButton else {
+            os_log("The Saved button was not pressed, cancelling", log: OSLog.default, type: .debug)
+            return
+        }
+    }*/
 
 }
