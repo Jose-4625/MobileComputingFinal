@@ -10,7 +10,11 @@ import UIKit
 import CoreLocation
 import CoreData
 
-class FestivalListTableViewController: UITableViewController, EventDataProtocol {
+class FestivalListTableViewController: UITableViewController, EventDataProtocol, CLLocationManagerDelegate {
+    
+    var startCity : String = ""
+    
+    let locationManager = CLLocationManager()
     
     func responseDataHandler(data: NSDictionary) {
         let dat = data["_embedded"]! as! NSDictionary
@@ -56,8 +60,17 @@ class FestivalListTableViewController: UITableViewController, EventDataProtocol 
     var dataSession = EventData()
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+            locationManager.requestLocation()
+        }
+        
         self.dataSession.delegate = self
-        self.dataSession.getData(dataQuery: "Austin")
+        self.dataSession.getData(dataQuery: self.startCity)
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -133,7 +146,44 @@ class FestivalListTableViewController: UITableViewController, EventDataProtocol 
         
     }
 
-    /*
+    //MARK: Location
+        //CLLocation Manager Delegate
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        /*for location in locations {
+            print(location)
+        }*/
+        
+        let authStatus = CLLocationManager.authorizationStatus()
+        let inUse = CLAuthorizationStatus.authorizedWhenInUse
+        let always = CLAuthorizationStatus.authorizedAlways
+        
+        if authStatus == inUse || authStatus == always {
+            if let lastLocation = self.locationManager.location {
+                let geocoder = CLGeocoder()
+                    
+                //Look up the coordinates and pass it to the completion handler
+                geocoder.reverseGeocodeLocation(lastLocation, completionHandler: { (placemarks, error) in
+                    if error == nil {
+                        let firstLocation = placemarks?[0]
+                        //WILL NEED TO SEARCH THIS LOCATION ON LOAD
+                        self.startCity = firstLocation?.locality ?? ""
+                        //firstLocation?.country ?? ""
+                    } else {
+                     //An error occurred during geocoding
+                        print("error")
+                    }
+                })
+            } else {
+                //No location available
+                print("no location")
+            }
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -141,6 +191,6 @@ class FestivalListTableViewController: UITableViewController, EventDataProtocol 
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
 }

@@ -37,6 +37,8 @@ class SearchViewController: UIViewController, UITextFieldDelegate, EventDataProt
         var processedURL: String
         let (newState, zipFlag) = convertText(text: stateField.text!)
         let (newCity, _) = convertText(text: cityField.text!)
+        let justCity = convertText(text: cityField.text!)
+        
 
         if zipFlag {
             processedURL = newState
@@ -45,9 +47,10 @@ class SearchViewController: UIViewController, UITextFieldDelegate, EventDataProt
             processedURL = "city=\(newCity)&stateCode=\(newState)&"
         }
     
+        let completeURL = urlBase + processedURL + key
 
-        self.dataSession.getData(dataQuery: urlBase + processedURL + key)
-        print(urlBase + processedURL + key)
+        self.dataSession.getData(dataQuery: completeURL)
+        print(completeURL)
     }
     
     // MARK: UITextFieldDelegate
@@ -77,7 +80,14 @@ class SearchViewController: UIViewController, UITextFieldDelegate, EventDataProt
         
     }
     
+    // MARK: - Navigation
 
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //self.dataSession.getData(dataQuery: justCity)
+        
+
+    }
 
 
 }
