@@ -64,6 +64,8 @@ class FestivalListTableViewController: UITableViewController, EventDataProtocol 
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        tableView.backgroundColor = .oceanBlue
+
     }
 
     // MARK: - Table view data source
@@ -83,11 +85,15 @@ class FestivalListTableViewController: UITableViewController, EventDataProtocol 
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FestivalCell", for: indexPath) as? FestivalCellTableViewCell else {
             fatalError("The dequeued cell is not an instance of FestivalCellTableViewCell.")
         }
+
         let curFest = eventlist[indexPath.row]
+
         
         cell.ListName.text = curFest.name
         cell.ListDate.text = curFest.Date
         cell.ListImage.image = curFest.getImage()
+        cell.textLabel!.textColor = .matteGrey
+
         return cell
     }
 

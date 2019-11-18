@@ -7,11 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		06415B1D237D036700F40C27 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06415B1C237D036700F40C27 /* BackgroundView.swift */; };
-		06415B1F237D0B0A00F40C27 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06415B1E237D0B0A00F40C27 /* SearchViewController.swift */; };
-		06BD5D8C2382042F00486584 /* ListCellBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BD5D8B2382042F00486584 /* ListCellBackground.swift */; };
-		06BD5D8E2382057200486584 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BD5D8D2382057200486584 /* UIColorExtensions.swift */; };
-		06BD5D902382067300486584 /* CGContextExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BD5D8F2382067300486584 /* CGContextExtensions.swift */; };
 		25058F252378E45A00BD9BF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25058F242378E45A00BD9BF3 /* AppDelegate.swift */; };
 		25058F272378E45A00BD9BF3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25058F262378E45A00BD9BF3 /* SceneDelegate.swift */; };
 		25058F292378E45A00BD9BF3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25058F282378E45A00BD9BF3 /* ViewController.swift */; };
@@ -19,21 +14,13 @@
 		25058F2F2378E45A00BD9BF3 /* TeamFestive.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 25058F2D2378E45A00BD9BF3 /* TeamFestive.xcdatamodeld */; };
 		25058F312378E45C00BD9BF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25058F302378E45C00BD9BF3 /* Assets.xcassets */; };
 		25058F342378E45C00BD9BF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25058F322378E45C00BD9BF3 /* LaunchScreen.storyboard */; };
-		25058F3C2378FBCA00BD9BF3 /* EventData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25058F3B2378FBCA00BD9BF3 /* EventData.swift */; };
-		25058F3E237A35CC00BD9BF3 /* SavedListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25058F3D237A35CC00BD9BF3 /* SavedListTableViewController.swift */; };
-		25058F40237A35E400BD9BF3 /* SavedCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25058F3F237A35E400BD9BF3 /* SavedCellTableViewCell.swift */; };
-		25058F42237A35E900BD9BF3 /* FestivalListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25058F41237A35E900BD9BF3 /* FestivalListTableViewController.swift */; };
-		25058F44237A35F000BD9BF3 /* FestivalCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25058F43237A35F000BD9BF3 /* FestivalCellTableViewCell.swift */; };
-		25058F46237A36D600BD9BF3 /* FestivalClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25058F45237A36D600BD9BF3 /* FestivalClass.swift */; };
-		2540574823810BD500D2F299 /* DetailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2540574723810BD500D2F299 /* DetailData.swift */; };
+		798E1A2F2379052900B91E3E /* FestivalListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798E1A2E2379052900B91E3E /* FestivalListTableViewController.swift */; };
+		798E1A312379058300B91E3E /* FestivalCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798E1A302379058300B91E3E /* FestivalCellTableViewCell.swift */; };
+		798E1A3323790A8900B91E3E /* SavedListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798E1A3223790A8900B91E3E /* SavedListTableViewController.swift */; };
+		798E1A3523790AE700B91E3E /* SavedCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798E1A3423790AE700B91E3E /* SavedCellTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		06415B1C237D036700F40C27 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
-		06415B1E237D0B0A00F40C27 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		06BD5D8B2382042F00486584 /* ListCellBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCellBackground.swift; sourceTree = "<group>"; };
-		06BD5D8D2382057200486584 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
-		06BD5D8F2382067300486584 /* CGContextExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGContextExtensions.swift; sourceTree = "<group>"; };
 		25058F212378E45A00BD9BF3 /* TeamFestive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamFestive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25058F242378E45A00BD9BF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		25058F262378E45A00BD9BF3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,13 +30,10 @@
 		25058F302378E45C00BD9BF3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		25058F332378E45C00BD9BF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		25058F352378E45C00BD9BF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		25058F3B2378FBCA00BD9BF3 /* EventData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventData.swift; sourceTree = "<group>"; };
-		25058F3D237A35CC00BD9BF3 /* SavedListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedListTableViewController.swift; sourceTree = "<group>"; };
-		25058F3F237A35E400BD9BF3 /* SavedCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedCellTableViewCell.swift; sourceTree = "<group>"; };
-		25058F41237A35E900BD9BF3 /* FestivalListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FestivalListTableViewController.swift; sourceTree = "<group>"; };
-		25058F43237A35F000BD9BF3 /* FestivalCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FestivalCellTableViewCell.swift; sourceTree = "<group>"; };
-		25058F45237A36D600BD9BF3 /* FestivalClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalClass.swift; sourceTree = "<group>"; };
-		2540574723810BD500D2F299 /* DetailData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailData.swift; sourceTree = "<group>"; };
+		798E1A2E2379052900B91E3E /* FestivalListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalListTableViewController.swift; sourceTree = "<group>"; };
+		798E1A302379058300B91E3E /* FestivalCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalCellTableViewCell.swift; sourceTree = "<group>"; };
+		798E1A3223790A8900B91E3E /* SavedListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedListTableViewController.swift; sourceTree = "<group>"; };
+		798E1A3423790AE700B91E3E /* SavedCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCellTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,22 +69,14 @@
 				25058F242378E45A00BD9BF3 /* AppDelegate.swift */,
 				25058F262378E45A00BD9BF3 /* SceneDelegate.swift */,
 				25058F282378E45A00BD9BF3 /* ViewController.swift */,
-				25058F3B2378FBCA00BD9BF3 /* EventData.swift */,
-				2540574723810BD500D2F299 /* DetailData.swift */,
+				798E1A2E2379052900B91E3E /* FestivalListTableViewController.swift */,
+				798E1A302379058300B91E3E /* FestivalCellTableViewCell.swift */,
 				25058F2A2378E45A00BD9BF3 /* Main.storyboard */,
-				06415B1E237D0B0A00F40C27 /* SearchViewController.swift */,
+				798E1A3223790A8900B91E3E /* SavedListTableViewController.swift */,
+				798E1A3423790AE700B91E3E /* SavedCellTableViewCell.swift */,
 				25058F302378E45C00BD9BF3 /* Assets.xcassets */,
-				25058F3F237A35E400BD9BF3 /* SavedCellTableViewCell.swift */,
-				25058F41237A35E900BD9BF3 /* FestivalListTableViewController.swift */,
-				06BD5D8D2382057200486584 /* UIColorExtensions.swift */,
-				06BD5D8F2382067300486584 /* CGContextExtensions.swift */,
-				25058F45237A36D600BD9BF3 /* FestivalClass.swift */,
-				25058F43237A35F000BD9BF3 /* FestivalCellTableViewCell.swift */,
 				25058F322378E45C00BD9BF3 /* LaunchScreen.storyboard */,
-				06415B1C237D036700F40C27 /* BackgroundView.swift */,
-				06BD5D8B2382042F00486584 /* ListCellBackground.swift */,
 				25058F352378E45C00BD9BF3 /* Info.plist */,
-				25058F3D237A35CC00BD9BF3 /* SavedListTableViewController.swift */,
 				25058F2D2378E45A00BD9BF3 /* TeamFestive.xcdatamodeld */,
 			);
 			path = TeamFestive;
@@ -177,22 +153,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				798E1A2F2379052900B91E3E /* FestivalListTableViewController.swift in Sources */,
 				25058F292378E45A00BD9BF3 /* ViewController.swift in Sources */,
-				06BD5D902382067300486584 /* CGContextExtensions.swift in Sources */,
-				06BD5D8E2382057200486584 /* UIColorExtensions.swift in Sources */,
-				25058F42237A35E900BD9BF3 /* FestivalListTableViewController.swift in Sources */,
-				06415B1D237D036700F40C27 /* BackgroundView.swift in Sources */,
 				25058F2F2378E45A00BD9BF3 /* TeamFestive.xcdatamodeld in Sources */,
+				798E1A312379058300B91E3E /* FestivalCellTableViewCell.swift in Sources */,
+				798E1A3323790A8900B91E3E /* SavedListTableViewController.swift in Sources */,
+				798E1A3523790AE700B91E3E /* SavedCellTableViewCell.swift in Sources */,
 				25058F252378E45A00BD9BF3 /* AppDelegate.swift in Sources */,
 				25058F272378E45A00BD9BF3 /* SceneDelegate.swift in Sources */,
-				06BD5D8C2382042F00486584 /* ListCellBackground.swift in Sources */,
-				06415B1F237D0B0A00F40C27 /* SearchViewController.swift in Sources */,
-				25058F40237A35E400BD9BF3 /* SavedCellTableViewCell.swift in Sources */,
-				25058F44237A35F000BD9BF3 /* FestivalCellTableViewCell.swift in Sources */,
-				2540574823810BD500D2F299 /* DetailData.swift in Sources */,
-				25058F3C2378FBCA00BD9BF3 /* EventData.swift in Sources */,
-				25058F46237A36D600BD9BF3 /* FestivalClass.swift in Sources */,
-				25058F3E237A35CC00BD9BF3 /* SavedListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
