@@ -9,6 +9,7 @@
 import UIKit
 import CoreLocation
 import CoreData
+import MapKit
 
 class FestivalListTableViewController: UITableViewController, EventDataProtocol, CLLocationManagerDelegate {
     
@@ -70,7 +71,7 @@ class FestivalListTableViewController: UITableViewController, EventDataProtocol,
         }
         
         self.dataSession.delegate = self
-        self.dataSession.getData(dataQuery: self.startCity)
+        
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -167,7 +168,10 @@ class FestivalListTableViewController: UITableViewController, EventDataProtocol,
                         let firstLocation = placemarks?[0]
                         //WILL NEED TO SEARCH THIS LOCATION ON LOAD
                         self.startCity = firstLocation?.locality ?? ""
+                        print(self.startCity)
                         self.startCity = self.startCity.replacingOccurrences(of: " ", with: "+")
+                        print(self.startCity)
+                        self.dataSession.getData(dataQuery: self.startCity)
                         
                         //firstLocation?.country ?? ""
                     } else {
