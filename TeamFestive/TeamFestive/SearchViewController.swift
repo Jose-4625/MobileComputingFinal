@@ -7,13 +7,16 @@
 //
 
 import UIKit
+import os.log
 
 
 class SearchViewController: UIViewController, UITextFieldDelegate, EventDataProtocol {
 
     @IBOutlet weak var cityField: UITextField!
     @IBOutlet weak var stateField: UITextField!
-
+    @IBOutlet weak var searchButon: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
+    
     private let key = "apikey=cZkS7fkgZY5xuMVE6pAP6cc7PdJFZjYP"
     private let urlBase = "https://app.ticketmaster.com/discovery/v2/events.json?"
     
@@ -28,7 +31,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, EventDataProt
     private var dataSession = EventData()
     
     // MARK: Formatting
-    @IBAction func search() {
+    @IBAction func search(_ sender: UIButton) {
         
         self.cityField.resignFirstResponder()
         self.stateField.resignFirstResponder()
@@ -84,7 +87,20 @@ class SearchViewController: UIViewController, UITextFieldDelegate, EventDataProt
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //self.dataSession.getData(dataQuery: justCity)
+        
+        super.prepare(for: segue, sender: sender)
+        
+//        guard let button = sender as? UIButton, button === searchButon else {
+//             os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
+//             return
+//         }
+        
+        if segue.destination is FestivalListTableViewController
+        {
+            let vc = segue.destination as? FestivalListTableViewController
+            vc?.dataSession.getData(dataQuery: "Dallas")
+         
+        }
         
 
     }
