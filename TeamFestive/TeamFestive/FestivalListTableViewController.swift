@@ -167,6 +167,8 @@ class FestivalListTableViewController: UITableViewController, EventDataProtocol,
                         let firstLocation = placemarks?[0]
                         //WILL NEED TO SEARCH THIS LOCATION ON LOAD
                         self.startCity = firstLocation?.locality ?? ""
+                        self.startCity = self.startCity.replacingOccurrences(of: " ", with: "+")
+                        
                         //firstLocation?.country ?? ""
                     } else {
                      //An error occurred during geocoding
