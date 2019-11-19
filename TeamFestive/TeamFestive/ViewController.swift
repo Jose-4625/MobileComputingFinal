@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import OSLog
+//import OSLog
 class ViewController: UIViewController{
 
     @IBOutlet weak var priceLabel: UILabel!
@@ -46,7 +46,6 @@ class ViewController: UIViewController{
         
         //Configure the destination view controller only when the save button is pressed
         guard let button = sender as? UIBarButtonItem, button === saveButton else {
-            os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
             return
         }
         

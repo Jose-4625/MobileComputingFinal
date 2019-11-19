@@ -25,6 +25,7 @@ class SavedListTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        tableView.backgroundColor = .fadedPink
     }
 
     // MARK: - Table view data source
@@ -43,10 +44,22 @@ class SavedListTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "SavedCell", for: indexPath) as? SavedCellTableViewCell else {
             fatalError("The dequeued cell is not an instance of SavedCellTableViewCell.")
         }
+        
+        if !(cell.backgroundView is ListCellBackground) {
+          cell.backgroundView = ListCellBackground()
+        }
+            
+        if !(cell.selectedBackgroundView is ListCellBackground) {
+          cell.selectedBackgroundView = ListCellBackground()
+        }
+
+        
         let Event = SavedEvents[indexPath.row]
         cell.SavedName.text = Event.value(forKeyPath: "name") as? String
         cell.SavedDate.text = String(Event.value(forKeyPath: "date") as! String)
         cell.SavedImage.image = UIImage(data: Event.value(forKeyPath: "image") as! Data)
+        
+        cell.textLabel!.textColor = .matteGrey
         
         return cell
         
