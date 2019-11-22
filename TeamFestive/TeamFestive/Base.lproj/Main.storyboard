@@ -14,7 +14,7 @@
                         <viewControllerLayoutGuide type="top" id="JG6-cC-dHn"/>
                         <viewControllerLayoutGuide type="bottom" id="BOW-75-Utu"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="DetailView" customModule="TeamFestive" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>

@@ -11,6 +11,7 @@
 		06415B1F237D0B0A00F40C27 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06415B1E237D0B0A00F40C27 /* SearchViewController.swift */; };
 		067AFF74238379A7000C2236 /* LaunchscreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067AFF73238379A7000C2236 /* LaunchscreenViewController.swift */; };
 		067AFF7823837D12000C2236 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067AFF7723837D12000C2236 /* BackgroundView.swift */; };
+		067AFF7A2388697F000C2236 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067AFF792388697F000C2236 /* DetailView.swift */; };
 		06BD5D8C2382042F00486584 /* ListCellBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BD5D8B2382042F00486584 /* ListCellBackground.swift */; };
 		06BD5D8E2382057200486584 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BD5D8D2382057200486584 /* UIColorExtensions.swift */; };
 		06BD5D902382067300486584 /* CGContextExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BD5D8F2382067300486584 /* CGContextExtensions.swift */; };
@@ -35,6 +36,7 @@
 		06415B1E237D0B0A00F40C27 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		067AFF73238379A7000C2236 /* LaunchscreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchscreenViewController.swift; sourceTree = "<group>"; };
 		067AFF7723837D12000C2236 /* BackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BackgroundView.swift; path = "../../TeamFestive 2/TeamFestive/BackgroundView.swift"; sourceTree = "<group>"; };
+		067AFF792388697F000C2236 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		06BD5D8B2382042F00486584 /* ListCellBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCellBackground.swift; sourceTree = "<group>"; };
 		06BD5D8D2382057200486584 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		06BD5D8F2382067300486584 /* CGContextExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGContextExtensions.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				25058F41237A35E900BD9BF3 /* FestivalListTableViewController.swift */,
 				06BD5D8D2382057200486584 /* UIColorExtensions.swift */,
 				06BD5D8F2382067300486584 /* CGContextExtensions.swift */,
+				067AFF792388697F000C2236 /* DetailView.swift */,
 				25058F45237A36D600BD9BF3 /* FestivalClass.swift */,
 				25058F43237A35F000BD9BF3 /* FestivalCellTableViewCell.swift */,
 				25058F322378E45C00BD9BF3 /* LaunchScreen.storyboard */,
@@ -199,6 +202,7 @@
 				25058F44237A35F000BD9BF3 /* FestivalCellTableViewCell.swift in Sources */,
 				2540574823810BD500D2F299 /* DetailData.swift in Sources */,
 				25058F3C2378FBCA00BD9BF3 /* EventData.swift in Sources */,
+				067AFF7A2388697F000C2236 /* DetailView.swift in Sources */,
 				25058F46237A36D600BD9BF3 /* FestivalClass.swift in Sources */,
 				25058F3E237A35CC00BD9BF3 /* SavedListTableViewController.swift in Sources */,
 			);
