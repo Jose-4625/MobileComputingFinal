@@ -1,5 +1,5 @@
 //
-//  DetailView.swift
+//  SearchDetailView.swift
 //  TeamFestive
 //
 //  Created by Denis Bowen on 11/22/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailView: UIView {
+class SearchDetailView: UIView {
   override func draw(_ rect: CGRect) {
     guard let context = UIGraphicsGetCurrentContext() else {
       return
@@ -17,7 +17,7 @@ class DetailView: UIView {
     let backgroundRect = bounds
     context.drawLinearGradient(
       in: backgroundRect,
-      startingWith: UIColor.oceanBlue.cgColor,
+      startingWith: UIColor.fadedPink.cgColor,
       finishingWith: UIColor.matteGrey.cgColor
     )
   }
