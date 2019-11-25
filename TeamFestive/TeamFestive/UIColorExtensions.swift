@@ -9,11 +9,11 @@
 import UIKit
 
 extension UIColor {
-  public static let oceanBlue =
-    UIColor(red: 0, green: 0.7216, blue: 0.8667, alpha: 1.0)
-  public static let fadedPink =
-    UIColor(red: 0.9216, green: 0.6196, blue: 0.9373, alpha: 1.0)
-  public static let matteGrey =
-    UIColor(red: 0.5098, green: 0.5098, blue: 0.5098, alpha: 1.0)
+    public static let oceanBlue =
+        UIColor(red: 0, green: 0.7216, blue: 0.8667, alpha: 1.0)
+    public static let fadedPink =
+        UIColor(red: 0.9216, green: 0.6196, blue: 0.9373, alpha: 1.0)
+    public static let matteGrey =
+        UIColor(red: 0.5098, green: 0.5098, blue: 0.5098, alpha: 1.0)
 }
 

@@ -24,6 +24,7 @@ class EventData{
     init(){
         
     }
+    
     private func urlCompile(query:String) -> NSURL{
         let tempURL:String = urlBase + "city=" + query
         let URL_Key:String = tempURL + key
@@ -37,8 +38,8 @@ class EventData{
         let dataTask  = self.urlSession.dataTask(with: url as URL) { (data, reponse, error) -> Void in
             if error != nil{
                 print(error!)
-            }else{
-                do{
+            } else {
+                do {
                     let jsonResult = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary
                     if jsonResult != nil {
                         //print(jsonResult!)
@@ -52,8 +53,6 @@ class EventData{
                         } else {
                             self.delegate?.responseError(message: "Fake data not found")
                         }
-                        
-                        
                     }
                 } catch {
                     //Catch and handle the exception

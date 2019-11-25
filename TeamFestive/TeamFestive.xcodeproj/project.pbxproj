@@ -10,7 +10,6 @@
 		06415B1D237D036700F40C27 /* LaunchscreenBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06415B1C237D036700F40C27 /* LaunchscreenBackground.swift */; };
 		06415B1F237D0B0A00F40C27 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06415B1E237D0B0A00F40C27 /* SearchViewController.swift */; };
 		067AFF74238379A7000C2236 /* LaunchscreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067AFF73238379A7000C2236 /* LaunchscreenViewController.swift */; };
-		067AFF7823837D12000C2236 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067AFF7723837D12000C2236 /* BackgroundView.swift */; };
 		067AFF7A2388697F000C2236 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067AFF792388697F000C2236 /* DetailView.swift */; };
 		067AFF7C23886FA5000C2236 /* SearchDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067AFF7B23886FA5000C2236 /* SearchDetailView.swift */; };
 		06BD5D8C2382042F00486584 /* ListCellBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BD5D8B2382042F00486584 /* ListCellBackground.swift */; };
@@ -30,13 +29,13 @@
 		25058F44237A35F000BD9BF3 /* FestivalCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25058F43237A35F000BD9BF3 /* FestivalCellTableViewCell.swift */; };
 		25058F46237A36D600BD9BF3 /* FestivalClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25058F45237A36D600BD9BF3 /* FestivalClass.swift */; };
 		2540574823810BD500D2F299 /* DetailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2540574723810BD500D2F299 /* DetailData.swift */; };
+		79FF14CD238B8ADF006CBF36 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FF14CC238B8ADF006CBF36 /* BackgroundView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		06415B1C237D036700F40C27 /* LaunchscreenBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchscreenBackground.swift; sourceTree = "<group>"; };
 		06415B1E237D0B0A00F40C27 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		067AFF73238379A7000C2236 /* LaunchscreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchscreenViewController.swift; sourceTree = "<group>"; };
-		067AFF7723837D12000C2236 /* BackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BackgroundView.swift; path = "../../TeamFestive 2/TeamFestive/BackgroundView.swift"; sourceTree = "<group>"; };
 		067AFF792388697F000C2236 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		067AFF7B23886FA5000C2236 /* SearchDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailView.swift; sourceTree = "<group>"; };
 		06BD5D8B2382042F00486584 /* ListCellBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCellBackground.swift; sourceTree = "<group>"; };
@@ -58,6 +57,7 @@
 		25058F43237A35F000BD9BF3 /* FestivalCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FestivalCellTableViewCell.swift; sourceTree = "<group>"; };
 		25058F45237A36D600BD9BF3 /* FestivalClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalClass.swift; sourceTree = "<group>"; };
 		2540574723810BD500D2F299 /* DetailData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailData.swift; sourceTree = "<group>"; };
+		79FF14CC238B8ADF006CBF36 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,32 +90,64 @@
 		25058F232378E45A00BD9BF3 /* TeamFestive */ = {
 			isa = PBXGroup;
 			children = (
+				797BECD6238B869200DF0E53 /* Launch Screen */,
+				797BECD7238B86A900DF0E53 /* Saved List */,
+				797BECD8238B86C900DF0E53 /* Festival List */,
+				797BECD9238B86FA00DF0E53 /* Search */,
 				25058F242378E45A00BD9BF3 /* AppDelegate.swift */,
 				25058F262378E45A00BD9BF3 /* SceneDelegate.swift */,
 				25058F282378E45A00BD9BF3 /* ViewController.swift */,
 				25058F3B2378FBCA00BD9BF3 /* EventData.swift */,
 				2540574723810BD500D2F299 /* DetailData.swift */,
+				067AFF792388697F000C2236 /* DetailView.swift */,
 				25058F2A2378E45A00BD9BF3 /* Main.storyboard */,
-				06415B1E237D0B0A00F40C27 /* SearchViewController.swift */,
 				25058F302378E45C00BD9BF3 /* Assets.xcassets */,
-				25058F3F237A35E400BD9BF3 /* SavedCellTableViewCell.swift */,
-				25058F41237A35E900BD9BF3 /* FestivalListTableViewController.swift */,
+				79FF14CC238B8ADF006CBF36 /* BackgroundView.swift */,
+				06BD5D8B2382042F00486584 /* ListCellBackground.swift */,
 				06BD5D8D2382057200486584 /* UIColorExtensions.swift */,
 				06BD5D8F2382067300486584 /* CGContextExtensions.swift */,
-				067AFF792388697F000C2236 /* DetailView.swift */,
-				067AFF7B23886FA5000C2236 /* SearchDetailView.swift */,
-				25058F45237A36D600BD9BF3 /* FestivalClass.swift */,
-				25058F43237A35F000BD9BF3 /* FestivalCellTableViewCell.swift */,
+				25058F352378E45C00BD9BF3 /* Info.plist */,
+				25058F2D2378E45A00BD9BF3 /* TeamFestive.xcdatamodeld */,
+			);
+			path = TeamFestive;
+			sourceTree = "<group>";
+		};
+		797BECD6238B869200DF0E53 /* Launch Screen */ = {
+			isa = PBXGroup;
+			children = (
 				25058F322378E45C00BD9BF3 /* LaunchScreen.storyboard */,
 				067AFF73238379A7000C2236 /* LaunchscreenViewController.swift */,
 				06415B1C237D036700F40C27 /* LaunchscreenBackground.swift */,
-				06BD5D8B2382042F00486584 /* ListCellBackground.swift */,
-				25058F352378E45C00BD9BF3 /* Info.plist */,
-				25058F3D237A35CC00BD9BF3 /* SavedListTableViewController.swift */,
-				25058F2D2378E45A00BD9BF3 /* TeamFestive.xcdatamodeld */,
-				067AFF7723837D12000C2236 /* BackgroundView.swift */,
 			);
-			path = TeamFestive;
+			path = "Launch Screen";
+			sourceTree = "<group>";
+		};
+		797BECD7238B86A900DF0E53 /* Saved List */ = {
+			isa = PBXGroup;
+			children = (
+				25058F3D237A35CC00BD9BF3 /* SavedListTableViewController.swift */,
+				25058F3F237A35E400BD9BF3 /* SavedCellTableViewCell.swift */,
+			);
+			path = "Saved List";
+			sourceTree = "<group>";
+		};
+		797BECD8238B86C900DF0E53 /* Festival List */ = {
+			isa = PBXGroup;
+			children = (
+				25058F41237A35E900BD9BF3 /* FestivalListTableViewController.swift */,
+				25058F45237A36D600BD9BF3 /* FestivalClass.swift */,
+				25058F43237A35F000BD9BF3 /* FestivalCellTableViewCell.swift */,
+			);
+			path = "Festival List";
+			sourceTree = "<group>";
+		};
+		797BECD9238B86FA00DF0E53 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				06415B1E237D0B0A00F40C27 /* SearchViewController.swift */,
+				067AFF7B23886FA5000C2236 /* SearchDetailView.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,7 +221,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				067AFF7823837D12000C2236 /* BackgroundView.swift in Sources */,
 				25058F292378E45A00BD9BF3 /* ViewController.swift in Sources */,
 				06BD5D902382067300486584 /* CGContextExtensions.swift in Sources */,
 				06BD5D8E2382057200486584 /* UIColorExtensions.swift in Sources */,
@@ -200,6 +231,7 @@
 				25058F272378E45A00BD9BF3 /* SceneDelegate.swift in Sources */,
 				067AFF7C23886FA5000C2236 /* SearchDetailView.swift in Sources */,
 				06BD5D8C2382042F00486584 /* ListCellBackground.swift in Sources */,
+				79FF14CD238B8ADF006CBF36 /* BackgroundView.swift in Sources */,
 				067AFF74238379A7000C2236 /* LaunchscreenViewController.swift in Sources */,
 				06415B1F237D0B0A00F40C27 /* SearchViewController.swift in Sources */,
 				25058F40237A35E400BD9BF3 /* SavedCellTableViewCell.swift in Sources */,

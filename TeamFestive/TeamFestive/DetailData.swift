@@ -24,6 +24,7 @@ class DetailData{
     init(){
         
     }
+    
     private func urlCompile(eventID:String) -> NSURL{
         let tempURL:String = urlBase + eventID + ".json?"
         let URL_Key:String = tempURL + key
@@ -37,8 +38,8 @@ class DetailData{
         let dataTask  = self.urlSession.dataTask(with: url as URL) { (data, reponse, error) -> Void in
             if error != nil{
                 print(error!)
-            }else{
-                do{
+            } else {
+                do {
                     let jsonResult = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary
                     if jsonResult != nil {
                         //print(jsonResult!)
@@ -52,8 +53,6 @@ class DetailData{
                         } else {
                             self.delegate?.responseError(message: "Fake data not found")
                         }
-                        
-                        
                     }
                 } catch {
                     //Catch and handle the exception
