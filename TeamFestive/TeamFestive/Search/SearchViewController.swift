@@ -91,6 +91,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, EventDataProt
         {
             let vc = segue.destination as? FestivalListTableViewController
             vc!.dataSession.getData(dataQuery: String(self.city))
+            vc!.LocationLabel.text = "Location: " + String(self.city).replacingOccurrences(of: "+", with: " ")
         }
     }
 }

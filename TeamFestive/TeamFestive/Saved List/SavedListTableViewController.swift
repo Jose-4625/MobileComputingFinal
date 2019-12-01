@@ -12,6 +12,7 @@ import CoreData
 class SavedListTableViewController: UITableViewController {
     var SavedEvents:[NSManagedObject] = []
     
+    @IBOutlet weak var savedLabel: UILabel!
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.loadSavedData()
@@ -26,6 +27,7 @@ class SavedListTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         tableView.backgroundColor = .fadedPink
+        savedLabel.backgroundColor = .oceanBlue
     }
 
     //MARK: Table view data source

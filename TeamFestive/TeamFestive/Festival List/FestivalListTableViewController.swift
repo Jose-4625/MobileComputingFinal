@@ -20,6 +20,7 @@ class FestivalListTableViewController: UITableViewController, EventDataProtocol,
     var eventlist:[Festivals] = [];
     var dataSession = EventData()
     
+    @IBOutlet weak var LocationLabel: UILabel!
     func responseDataHandler(data: NSDictionary) {
         self.eventlist = []
         let dat = data["_embedded"]! as! NSDictionary
@@ -81,6 +82,7 @@ class FestivalListTableViewController: UITableViewController, EventDataProtocol,
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         tableView.backgroundColor = .oceanBlue
+        LocationLabel.backgroundColor = .oceanBlue
     }
 
     //MARK: Table view data source
@@ -169,16 +171,18 @@ class FestivalListTableViewController: UITableViewController, EventDataProtocol,
                         self.startCity = self.startCity.replacingOccurrences(of: " ", with: "+")
                         print(self.startCity)
                         self.dataSession.getData(dataQuery: self.startCity)
-                        
+                        self.LocationLabel.text = "Location: " +  self.startCity.replacingOccurrences(of: "+", with: " ")
                         //firstLocation?.country ?? ""
                     } else {
                      //An error occurred during geocoding
                         print("error")
+                        self.LocationLabel.text = "Location: Error"
                     }
                 })
             } else {
                 //No location available
                 print("no location")
+                self.LocationLabel.text = "No Location"
             }
         }
     }
