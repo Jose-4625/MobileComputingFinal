@@ -13,6 +13,8 @@ import EventKit
 class SavedListTableViewController: UITableViewController {
     var SavedEvents:[NSManagedObject] = []
     
+    var masterList: [String] = []
+    
     @IBOutlet weak var savedLabel: UILabel!
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -39,17 +41,20 @@ class SavedListTableViewController: UITableViewController {
             
         for calendar in calendars {
             // 2
-            if calendar.title == "Ioscreator" {
+            if calendar.title == "Calendar" {
                 // 3
-                let startDate = Date()
+                let dateString = masterList[0]
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd"
+                let startDate = dateFormatter.date(from: dateString)
                 // 2 hours
-                let endDate = startDate.addingTimeInterval(2 * 60 * 60)
+                let endDate = startDate!.addingTimeInterval(24 * 60 * 60)
                     
                 // 4
                 let event = EKEvent(eventStore: store)
                 event.calendar = calendar
                     
-                event.title = "New Meeting"
+                event.title = masterList[1]
                 event.startDate = startDate
                 event.endDate = endDate
                     
@@ -149,12 +154,16 @@ class SavedListTableViewController: UITableViewController {
             vc!.selectedData = selectedData
             vc!.selectedDataID = cellidx.row
             vc!.date = selectedData.value(forKeyPath: "date") as? String
+            masterList.append((selectedData.value(forKeyPath: "date") as? String)!)
             vc!.desc = selectedData.value(forKeyPath: "desc") as? String
             vc!.img = UIImage(data: selectedData.value(forKeyPath: "image") as! Data)
             vc!.name = selectedData.value(forKeyPath: "name") as? String
+            masterList.append((selectedData.value(forKeyPath: "name") as? String)!)
             vc!.price = selectedData.value(forKeyPath: "price") as? String
             vc!.site = selectedData.value(forKeyPath: "website") as? String
             vc!.venue = selectedData.value(forKeyPath: "venue") as? String
+            
+            print(masterList)
             
             // 1
             let eventStore = EKEventStore()
