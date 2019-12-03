@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import EventKit
 
 class SavedListTableViewController: UITableViewController {
     var SavedEvents:[NSManagedObject] = []
@@ -29,7 +30,40 @@ class SavedListTableViewController: UITableViewController {
         tableView.backgroundColor = .fadedPink
         savedLabel.backgroundColor = .oceanBlue
     }
-
+    
+    @IBAction func calendarButton(store: EKEventStore) {
+        
+        
+        // 1
+        let calendars = store.calendars(for: .event)
+            
+        for calendar in calendars {
+            // 2
+            if calendar.title == "Ioscreator" {
+                // 3
+                let startDate = Date()
+                // 2 hours
+                let endDate = startDate.addingTimeInterval(2 * 60 * 60)
+                    
+                // 4
+                let event = EKEvent(eventStore: store)
+                event.calendar = calendar
+                    
+                event.title = "New Meeting"
+                event.startDate = startDate
+                event.endDate = endDate
+                    
+                // 5
+                do {
+                    try store.save(event, span: .thisEvent)
+                }
+                catch {
+                   print("Error saving event in calendar")             }
+                }
+        }
+        
+    }
+    
     //MARK: Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -121,6 +155,29 @@ class SavedListTableViewController: UITableViewController {
             vc!.price = selectedData.value(forKeyPath: "price") as? String
             vc!.site = selectedData.value(forKeyPath: "website") as? String
             vc!.venue = selectedData.value(forKeyPath: "venue") as? String
+            
+            // 1
+            let eventStore = EKEventStore()
+                
+            // 2
+            switch EKEventStore.authorizationStatus(for: .event) {
+            case .authorized:
+                calendarButton(store: eventStore)
+                case .denied:
+                    print("Access denied")
+                case .notDetermined:
+                // 3
+                    eventStore.requestAccess(to: .event, completion:
+                      {[weak self] (granted: Bool, error: Error?) -> Void in
+                          if granted {
+                            self!.calendarButton(store: eventStore)
+                          } else {
+                                print("Access denied")
+                          }
+                    })
+                    default:
+                        print("Case default")
+            }
         }
     }
 }

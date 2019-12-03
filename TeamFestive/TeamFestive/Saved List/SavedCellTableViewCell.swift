@@ -14,6 +14,7 @@ class SavedCellTableViewCell: UITableViewCell {
     @IBOutlet weak var SavedName: UILabel!
     @IBOutlet weak var SavedDate: UILabel!
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

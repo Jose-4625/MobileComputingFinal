@@ -26,6 +26,8 @@
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Let us find festivals in your area!</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Let us add this event to your calendar!</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
