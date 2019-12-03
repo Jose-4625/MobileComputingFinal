@@ -60,6 +60,12 @@ class FestivalListTableViewController: UITableViewController, EventDataProtocol,
     
     func responseError(message: String) {
         print("response ERROR")
+        DispatchQueue.main.async{
+            self.LocationLabel.text = "No Response"
+            self.eventlist = []
+            self.tableView.reloadData()
+        }
+        
     }
     
     override func viewDidLoad() {
