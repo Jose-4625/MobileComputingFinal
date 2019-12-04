@@ -38,6 +38,12 @@ class SavedEventViewController: UIViewController, WKNavigationDelegate {
         self.image.image = img
         self.nameLabel.text = name
         self.priceLabel.text = price
+
+        if self.priceLabel.text == Optional("Unavailable - Unavailable USD") {
+            self.priceLabel.text = "See Below for Ticket Prices" }
+        else {
+            self.priceLabel.text = price }
+        
         self.venueLabel.text = venue
         self.webView.navigationDelegate = self
         let request = URLRequest(url: URL(string: self.site)!)
