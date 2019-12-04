@@ -138,10 +138,10 @@
             </objects>
             <point key="canvasLocation" x="1524.6376811594205" y="21.428571428571427"/>
         </scene>
-        <!--View Controller-->
+        <!--Saved Event View Controller-->
         <scene sceneID="zzd-nb-Pot">
             <objects>
-                <viewController id="Rmk-Y4-P2n" customClass="ViewController" customModule="TeamFestive" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Rmk-Y4-P2n" customClass="SavedEventViewController" customModule="TeamFestive" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pB7-8Y-Mzr"/>
                         <viewControllerLayoutGuide type="bottom" id="Tx4-tW-c4Z"/>
@@ -266,7 +266,7 @@
                     <navigationItem key="navigationItem" id="AEB-Ue-EbV">
                         <barButtonItem key="rightBarButtonItem" systemItem="trash" id="jzd-Ts-z3A">
                             <connections>
-                                <segue destination="SxC-a4-tYs" kind="unwind" unwindAction="unwindToSavedViewWithSegue:" id="5U0-S3-XXi"/>
+                                <segue destination="SxC-a4-tYs" kind="unwind" unwindAction="unwindToSavedViewWithSegue:" id="VMg-ac-yp7"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

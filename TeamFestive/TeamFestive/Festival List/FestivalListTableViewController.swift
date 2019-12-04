@@ -17,10 +17,13 @@ class FestivalListTableViewController: UITableViewController, EventDataProtocol,
     var startCity : String = ""
     let locationManager = CLLocationManager()
         //Event
-    var eventlist:[Festivals] = [];
+    var eventlist:[Festivals] = []
+    var savedlist:[String] = []
+    var SavedEvents:[NSManagedObject] = []
     var dataSession = EventData()
     
     @IBOutlet weak var LocationLabel: UILabel!
+    
     func responseDataHandler(data: NSDictionary) {
         self.eventlist = []
         let dat = data["_embedded"]! as! NSDictionary
@@ -150,7 +153,20 @@ class FestivalListTableViewController: UITableViewController, EventDataProtocol,
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
-        
+    }
+    
+    func loadSavedData(){
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Event")
+
+        do {
+            SavedEvents = try managedContext.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
     }
 
     //MARK: Location
@@ -207,16 +223,25 @@ class FestivalListTableViewController: UITableViewController, EventDataProtocol,
         if segue.destination is ViewController{
             let vc = segue.destination as? ViewController
             let cellidx = self.tableView.indexPathForSelectedRow!
-            let selecedData = self.eventlist[cellidx.row]
+            let selectedData = self.eventlist[cellidx.row]
             let cell = self.tableView.cellForRow(at: cellidx) as! FestivalCellTableViewCell
+            
+            self.loadSavedData()
+            self.savedlist = []
+            
+            for event in SavedEvents {
+                self.savedlist.append(event.value(forKeyPath: "desc") as! String)
+            }
+            
             //name: String, _class:String, level:Int, image:UIImage, currentHP:Int, totalHP:Int, APM:Float
-            vc!.date = selecedData.Date
-            vc!.desc = selecedData.desc
-            vc!.img = selecedData.getImage()
-            vc!.name = selecedData.name
-            vc!.price = selecedData.price
-            vc!.site = selecedData.WebSite
-            vc!.venue = selecedData.venue
+            vc!.date = selectedData.Date
+            vc!.desc = selectedData.desc
+            vc!.img = selectedData.getImage()
+            vc!.name = selectedData.name
+            vc!.price = selectedData.price
+            vc!.site = selectedData.WebSite
+            vc!.venue = selectedData.venue
+            vc!.savedlist = self.savedlist
         }
     }
 }

@@ -12,10 +12,10 @@ import EventKit
 
 class SavedListTableViewController: UITableViewController {
     var SavedEvents:[NSManagedObject] = []
-    
     var masterList: [String] = []
     
     @IBOutlet weak var savedLabel: UILabel!
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.loadSavedData()
@@ -34,8 +34,6 @@ class SavedListTableViewController: UITableViewController {
     }
     
     @IBAction func calendarButton(store: EKEventStore) {
-        
-        
         // 1
         let calendars = store.calendars(for: .event)
             
@@ -145,8 +143,8 @@ class SavedListTableViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
-        if segue.destination is ViewController{
-            let vc = segue.destination as? ViewController
+        if segue.destination is SavedEventViewController{
+            let vc = segue.destination as? SavedEventViewController
             let cellidx = self.tableView.indexPathForSelectedRow!
             let selectedData = self.SavedEvents[cellidx.row]
             let cell = self.tableView.cellForRow(at: cellidx) as! SavedCellTableViewCell
