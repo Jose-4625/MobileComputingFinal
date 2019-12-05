@@ -294,7 +294,9 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="Futura-MediumItalic" family="Futura" pointSize="34"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <nil key="highlightedColor"/>
+                            <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="shadowColor" red="0.92200000000000004" green="0.62" blue="0.93700000000000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <size key="shadowOffset" width="2" height="0.0"/>
                         </label>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" indentationWidth="10" reuseIdentifier="FestivalCell" id="Jrl-9w-9E3" customClass="FestivalCellTableViewCell" customModule="TeamFestive" customModuleProvider="target">
@@ -403,6 +405,8 @@
                             <fontDescription key="fontDescription" name="Futura-MediumItalic" family="Futura" pointSize="34"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
+                            <color key="shadowColor" red="0.92200000000000004" green="0.62" blue="0.93700000000000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <size key="shadowOffset" width="2" height="0.0"/>
                         </label>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SavedCell" rowHeight="150" id="ZXc-jG-IR4" customClass="SavedCellTableViewCell" customModule="TeamFestive" customModuleProvider="target">
@@ -524,6 +528,8 @@
                                         <fontDescription key="fontDescription" name="Futura-MediumItalic" family="Futura" pointSize="29"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
+                                        <color key="shadowColor" red="0.92200000000000004" green="0.62" blue="0.93700000000000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <size key="shadowOffset" width="2" height="0.0"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter City" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qlK-S7-PkG">
                                         <rect key="frame" x="0.0" y="64" width="374" height="49"/>
@@ -534,8 +540,10 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qjz-bX-H7g">
                                         <rect key="frame" x="0.0" y="128" width="374" height="49"/>
                                         <fontDescription key="fontDescription" name="Futura-MediumItalic" family="Futura" pointSize="28"/>
+                                        <size key="titleShadowOffset" width="2" height="0.0"/>
                                         <state key="normal" title="Search">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleShadowColor" red="0.92200000000000004" green="0.62" blue="0.93700000000000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="search:" destination="BPf-ld-drR" eventType="touchUpInside" id="aRd-7Z-mnf"/>
@@ -544,8 +552,10 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1oJ-ay-6q1">
                                         <rect key="frame" x="0.0" y="192" width="374" height="49"/>
                                         <fontDescription key="fontDescription" name="Futura-MediumItalic" family="Futura" pointSize="28"/>
+                                        <size key="titleShadowOffset" width="2" height="0.0"/>
                                         <state key="normal" title="Cancel">
-                                            <color key="titleColor" red="0.93333333330000001" green="0.30196078430000001" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleShadowColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <segue destination="mGP-1o-vXc" kind="unwind" identifier="unwind" unwindAction="unwindToListViewWithSegue:" id="VZn-tO-FPe"/>
