@@ -17,10 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         // Theming
-        UINavigationBar.appearance().tintColor = .matteGrey
+        UINavigationBar.appearance().tintColor = .white
         UINavigationBar.appearance().barTintColor = .oceanBlue
-        UINavigationBar.appearance().titleTextAttributes =
-          [.foregroundColor: UIColor.matteGrey]
+        //UINavigationBar.appearance().titleTextAttributes =
+          //[.foregroundColor: UIColor.matteGrey]
 
         return true
     }

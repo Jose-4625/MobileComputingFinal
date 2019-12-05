@@ -18,7 +18,7 @@ class SearchDetailView: UIView {
     context.drawLinearGradient(
       in: backgroundRect,
       startingWith: UIColor.fadedPink.cgColor,
-      finishingWith: UIColor.matteGrey.cgColor
+      finishingWith: UIColor.oceanBlue.cgColor
     )
   }
 }
