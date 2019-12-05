@@ -38,10 +38,10 @@ class SearchViewController: UIViewController, UITextFieldDelegate, EventDataProt
         else {
         
         // Needs to be ?q={city},{state} and ?q={zipcode}
-        var processedURL: String
+        //var processedURL: String
 
         let (newCity, _) = convertText(text: cityField.text!)
-        let justCity = convertText(text: cityField.text!)
+        //let justCity = convertText(text: cityField.text!)
         self.city = newCity
         print(self.city)
         self.performSegue(withIdentifier: "unwind", sender: searchButton)
