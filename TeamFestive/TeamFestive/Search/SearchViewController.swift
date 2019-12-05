@@ -15,6 +15,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, EventDataProt
     var city: String = ""
     
     @IBOutlet weak var cityField: UITextField!
+    @IBOutlet weak var cityLabel: UILabel!
     
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
@@ -30,27 +31,21 @@ class SearchViewController: UIViewController, UITextFieldDelegate, EventDataProt
     @IBAction func search(_ sender: UIButton) {
         
         self.cityField.resignFirstResponder()
-        //self.stateField.resignFirstResponder()
+  
+        if cityField.text == "" {
+            cityLabel.text = "Please Enter a City!"
+        }
+        else {
         
         // Needs to be ?q={city},{state} and ?q={zipcode}
         var processedURL: String
-        //let (newState, zipFlag) = convertText(text: stateField.text!)
+
         let (newCity, _) = convertText(text: cityField.text!)
         let justCity = convertText(text: cityField.text!)
-        
-        /*if zipFlag {
-            processedURL = newState
-        }
-        else {
-            processedURL = "city=\(newCity)&stateCode=\(newState)&"
-        }*/
-    
-        //let completeURL = urlBase + processedURL + key
         self.city = newCity
         print(self.city)
         self.performSegue(withIdentifier: "unwind", sender: searchButton)
-        //self.dataSession.getData(dataQuery: justCity)
-        //print(completeURL)
+        }
     }
     
     // MARK: UITextFieldDelegate

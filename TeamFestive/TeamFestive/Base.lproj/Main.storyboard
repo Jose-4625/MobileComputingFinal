@@ -614,6 +614,7 @@
                     <connections>
                         <outlet property="cancelButton" destination="1oJ-ay-6q1" id="7wM-SJ-g5g"/>
                         <outlet property="cityField" destination="qlK-S7-PkG" id="Js9-cJ-6Kb"/>
+                        <outlet property="cityLabel" destination="Mbv-Qm-Oqp" id="DbK-Ml-Mt9"/>
                         <outlet property="searchButton" destination="qjz-bX-H7g" id="Unz-pV-EIC"/>
                     </connections>
                 </viewController>
