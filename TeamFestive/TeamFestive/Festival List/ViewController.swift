@@ -37,6 +37,7 @@ class ViewController: UIViewController, WKNavigationDelegate{
     override func viewDidLoad() {
         if let index = savedlist.index(of: desc!) {
             self.saveButton.tintColor = UIColor.red
+            self.saveButton.isEnabled = false
             alreadySaved = true
         }
         
