@@ -99,7 +99,7 @@ class SavedEventViewController: UIViewController, WKNavigationDelegate {
                 // 3
                 let dateString = masterList[0]
                 let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd"
+                dateFormatter.dateFormat = "MMM dd, yyyy"
                 let startDate = dateFormatter.date(from: dateString)
                 // 2 hours
                 let endDate = startDate!.addingTimeInterval(24 * 60 * 60)

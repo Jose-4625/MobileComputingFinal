@@ -125,6 +125,8 @@ class FestivalListTableViewController: UITableViewController, EventDataProtocol,
 
         cell.ListName.text = curFest.name
         cell.ListDate.text = curFest.Date
+        let formattedDate = formattedDateFromString(dateString: cell.ListDate.text!, withFormat: "MMM dd, yyyy")
+        cell.ListDate.text = formattedDate
         cell.ListImage.image = curFest.getImage()
         cell.textLabel!.textColor = .matteGrey
 
@@ -169,6 +171,22 @@ class FestivalListTableViewController: UITableViewController, EventDataProtocol,
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
+    }
+    
+    func formattedDateFromString(dateString: String, withFormat format: String) -> String? {
+
+        let inputFormatter = DateFormatter()
+        inputFormatter.dateFormat = "yyyy-MM-dd"
+
+        if let date = inputFormatter.date(from: dateString) {
+
+            let outputFormatter = DateFormatter()
+          outputFormatter.dateFormat = format
+
+            return outputFormatter.string(from: date)
+        }
+
+        return nil
     }
 
     //MARK: Location
