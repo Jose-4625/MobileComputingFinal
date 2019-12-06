@@ -219,8 +219,7 @@
                                                                     <color key="titleShadowColor" red="0.92200000000000004" green="0.62" blue="0.93700000000000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <action selector="calendarButton" destination="SxC-a4-tYs" eventType="touchUpInside" id="p8I-x3-Zq2"/>
-                                                                    <action selector="calendarButton:" destination="SxC-a4-tYs" eventType="touchUpInside" id="i5J-UO-l90"/>
+                                                                    <action selector="createEvent:" destination="Rmk-Y4-P2n" eventType="touchUpInside" id="a1i-1g-Bcp"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -288,6 +287,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="calendarButton" destination="Vwx-Ak-smh" id="61O-tX-8Jy"/>
                         <outlet property="dateLabel" destination="tYZ-e6-Sci" id="GfK-AJ-4Aj"/>
                         <outlet property="image" destination="4TO-3d-jcp" id="OfJ-6d-WJU"/>
                         <outlet property="nameLabel" destination="yKJ-TE-Dnd" id="cvn-tA-jrv"/>
