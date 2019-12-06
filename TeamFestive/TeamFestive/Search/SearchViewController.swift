@@ -25,6 +25,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, EventDataProt
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.cityField.delegate = self
     }
     
     //MARK: Formatting
