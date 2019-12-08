@@ -32,7 +32,12 @@ class FestivalListTableViewController: UITableViewController, EventDataProtocol,
             for i in events {
                 let d = i as? NSDictionary
                 let name = d!["name"]! as! String
-                let location = ((((d!["_embedded"] as! NSDictionary)["venues"]! as! NSArray)[0] as! NSDictionary)["address"] as! NSDictionary)["line1"]! as! String
+                var location: String
+                if (((((d!["_embedded"] as! NSDictionary)["venues"] as! NSArray)[0] as! NSDictionary)["address"] as! NSDictionary)["line1"]) != nil{
+                    location = ((((d!["_embedded"] as! NSDictionary)["venues"]! as! NSArray)[0] as! NSDictionary)["address"] as! NSDictionary)["line1"]! as! String
+                }else{
+                    location = "Unknown"
+                }
                 let Date = ((d!["dates"]! as! NSDictionary)["start"] as! NSDictionary)["localDate"]! as! String
                 let priceMin:String
                 let priceMax:String
@@ -117,7 +122,9 @@ class FestivalListTableViewController: UITableViewController, EventDataProtocol,
             
         if !(cell.selectedBackgroundView is ListCellBackground) {
           cell.selectedBackgroundView = ListCellBackground()
+          cell.layer.cornerRadius = 10.0
         }
+        
 
         let curFest = eventlist[indexPath.row]
 

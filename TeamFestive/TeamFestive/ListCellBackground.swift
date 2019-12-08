@@ -27,7 +27,6 @@ class ListCellBackground: UIView {
       context.setLineWidth(1)
       context.stroke(strokeRect)
 
-
       // 2
       //context.setFillColor(UIColor.red.cgColor)
       // 3

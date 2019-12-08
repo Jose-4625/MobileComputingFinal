@@ -89,6 +89,7 @@ class SavedListTableViewController: UITableViewController {
             
         if !(cell.selectedBackgroundView is ListCellBackground) {
           cell.selectedBackgroundView = ListCellBackground()
+          cell.layer.cornerRadius = 10.0
         }
 
         let Event = SavedEvents[indexPath.row]
