@@ -37,12 +37,15 @@ class ViewController: UIViewController, WKNavigationDelegate{
     override func viewDidLoad() {
         if let index = savedlist.index(of: desc!) {
             self.saveButton.tintColor = UIColor.red
+            self.saveButton.isEnabled = false
             alreadySaved = true
         }
         
         super.viewDidLoad()
 
         self.dateLabel.text = date
+        let formattedDate = formattedDateFromString(dateString: dateLabel.text!, withFormat: "MMM dd, yyyy")
+        self.dateLabel.text = formattedDate
         self.image.image = img
         self.nameLabel.text = name
         self.priceLabel.text = price
@@ -57,6 +60,22 @@ class ViewController: UIViewController, WKNavigationDelegate{
         let request = URLRequest(url: URL(string: self.site)!)
         self.webView.load(request)
      }
+    
+    func formattedDateFromString(dateString: String, withFormat format: String) -> String? {
+
+        let inputFormatter = DateFormatter()
+        inputFormatter.dateFormat = "yyyy-MM-dd"
+
+        if let date = inputFormatter.date(from: dateString) {
+
+            let outputFormatter = DateFormatter()
+          outputFormatter.dateFormat = format
+
+            return outputFormatter.string(from: date)
+        }
+
+        return nil
+    }
     
     //MARK: Web View
      func webView(_ webView: WKWebView, didReceiveServerRedirectForProvisionalNavigation navigation: WKNavigation!) {

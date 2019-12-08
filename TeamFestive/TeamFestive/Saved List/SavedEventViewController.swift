@@ -9,6 +9,7 @@
 import UIKit
 import WebKit
 import CoreData
+import EventKit
 
 class SavedEventViewController: UIViewController, WKNavigationDelegate {
     //MARK: Properties
@@ -21,6 +22,8 @@ class SavedEventViewController: UIViewController, WKNavigationDelegate {
     @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var trashButton: UIBarButtonItem!
     
+    @IBOutlet weak var calendarButton: UIButton!
+    
     var date: String!
     var desc: String!
     var img: UIImage!
@@ -31,12 +34,16 @@ class SavedEventViewController: UIViewController, WKNavigationDelegate {
     var selectedData: NSManagedObject!
     var selectedDataID: Int!
     
+    var masterList: [String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.dateLabel.text = date
+        masterList.append(dateLabel.text!)
         self.image.image = img
         self.nameLabel.text = name
+        masterList.append(nameLabel.text!)
         self.priceLabel.text = price
 
         if self.priceLabel.text == Optional("Unavailable - Unavailable USD") {
@@ -48,7 +55,78 @@ class SavedEventViewController: UIViewController, WKNavigationDelegate {
         self.webView.navigationDelegate = self
         let request = URLRequest(url: URL(string: self.site)!)
         self.webView.load(request)
+        
+        if EKEventStore.authorizationStatus(for: .event) == .denied {
+            calendarButton.isHidden = true
+        }
+        else {
+            calendarButton.isHidden = false
+        }
+
      }
+    @IBAction func createEvent(_ sender: Any) {
+        
+        let eventStore = EKEventStore()
+        
+        // 2
+        switch EKEventStore.authorizationStatus(for: .event) {
+        case .authorized:
+            calendarButton.isHidden = false
+        case .denied:
+            calendarButton.isHidden = true
+        case .notDetermined:
+        // 3
+            eventStore.requestAccess(to: .event, completion:
+              {[weak self] (granted: Bool, error: Error?) -> Void in
+                  if granted {
+                    //self!.createCalendarEvent(store: eventStore)
+                    self!.calendarButton.isHidden = false
+                  } else {
+                        self!.calendarButton.isHidden = true
+                        print("Access denied")
+                  }
+            })
+            default:
+                print("Case default")
+        }
+
+        // 1
+        let calendars = eventStore.calendars(for: .event)
+
+        for calendar in calendars {
+            // 2
+            if calendar.title == "Calendar" {
+                // 3
+                let dateString = masterList[0]
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "MMM dd, yyyy"
+                let startDate = dateFormatter.date(from: dateString)
+                // 2 hours
+                let endDate = startDate!.addingTimeInterval(24 * 60 * 60)
+
+                // 4
+                let event = EKEvent(eventStore: eventStore)
+                event.calendar = calendar
+
+                event.title = masterList[1]
+                event.startDate = startDate
+                event.endDate = endDate
+
+                // 5
+                do {
+                    try eventStore.save(event, span: .thisEvent)
+                    
+                    let alertController = UIAlertController(title: "Event Added", message:
+                        "Event successfully added to your Calendar!", preferredStyle: .alert)
+                    alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+
+                    self.present(alertController, animated: true, completion: nil)
+                }
+                catch {
+                   print("Error saving event in calendar")             }
+                }
+        }
+    }
     
     //MARK: Web View
      func webView(_ webView: WKWebView, didReceiveServerRedirectForProvisionalNavigation navigation: WKNavigation!) {
